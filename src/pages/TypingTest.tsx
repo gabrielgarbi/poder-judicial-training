@@ -19,7 +19,6 @@ export function TypingTest() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    // Pick random text
     setText(legalTexts[Math.floor(Math.random() * legalTexts.length)].content);
   }, []);
 
@@ -34,6 +33,68 @@ export function TypingTest() {
     }
     return () => clearInterval(interval);
   }, [isActive, timeLeft]);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    const activeWordEl = document.getElementById('active-word');
+    if (activeWordEl) {
+      activeWordEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [input]);
+
+  const evaluateTyping = (inputStr: string, originalStr: string) => {
+    const inputWords = inputStr.split(' ');
+    const originalWords = originalStr.split(' ');
+    
+    const wordStates = new Array(originalWords.length).fill('pending');
+    let correctCount = 0;
+    let activeIndex = 0;
+    
+    let i = 0;
+    let j = 0;
+    
+    while (i < inputWords.length && j < originalWords.length) {
+      const iw = inputWords[i];
+      const ow = originalWords[j];
+      const isLastInput = (i === inputWords.length - 1);
+      
+      if (isLastInput) {
+        activeIndex = j;
+        if (iw === '') {
+           wordStates[j] = 'active-correct';
+        } else if (ow.startsWith(iw)) {
+           wordStates[j] = 'active-correct';
+        } else {
+           wordStates[j] = 'active-incorrect';
+        }
+        i++;
+        j++;
+      } else {
+        if (iw === ow) {
+          wordStates[j] = 'correct';
+          correctCount++;
+          i++;
+          j++;
+        } else {
+          // Lookahead by 1 to resync
+          if (i + 1 < inputWords.length && inputWords[i + 1] === ow) {
+            i++; // skip the extra typed word
+            continue;
+          } else if (j + 1 < originalWords.length && iw === originalWords[j + 1]) {
+            wordStates[j] = 'incorrect';
+            j++;
+            continue;
+          } else {
+            wordStates[j] = 'incorrect';
+            i++;
+            j++;
+          }
+        }
+      }
+    }
+    
+    return { correctCount, wordStates, activeIndex, originalWords };
+  };
 
   const startTest = () => {
     setTimeLeft(selectedTime * 60);
@@ -50,29 +111,20 @@ export function TypingTest() {
     setIsActive(false);
     setIsFinished(true);
     
-    // Calculate final stats
-    const inputWords = input.trim().split(/\s+/).filter(w => w.length > 0);
-    const originalWords = text.trim().split(/\s+/);
-    
-    let correct = 0;
-    inputWords.forEach((word, idx) => {
-      if (idx < originalWords.length && word === originalWords[idx]) {
-        correct++;
-      }
-    });
-    
-    setCorrectWords(correct);
+    const { correctCount, activeIndex } = evaluateTyping(input, text);
+    setCorrectWords(correctCount);
     
     const minutes = (selectedTime * 60 - timeLeft) / 60 || 1/60; 
-    const calculatedWpm = Math.round(correct / minutes);
+    const calculatedWpm = Math.round(correctCount / minutes);
     setWpm(calculatedWpm);
     
-    const acc = inputWords.length > 0 ? Math.round((correct / inputWords.length) * 100) : 0;
+    const totalAttempted = activeIndex;
+    const acc = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
     setAccuracy(acc);
 
     saveResult({
       type: 'typing',
-      score: correct,
+      score: correctCount,
       duration: selectedTime * 60 - timeLeft,
       details: { wpm: calculatedWpm, accuracy: acc }
     });
@@ -82,22 +134,16 @@ export function TypingTest() {
     const val = e.target.value;
     setInput(val);
     
-    // Live calculation
-    const inputWords = val.trim().split(/\s+/).filter(w => w.length > 0);
-    const originalWords = text.trim().split(/\s+/);
-    let correct = 0;
-    inputWords.forEach((word, idx) => {
-      if (idx < originalWords.length && word === originalWords[idx]) {
-        correct++;
-      }
-    });
+    const { correctCount, activeIndex, originalWords } = evaluateTyping(val, text);
+    setCorrectWords(correctCount);
     
-    setCorrectWords(correct);
     const minutes = (selectedTime * 60 - timeLeft) / 60 || 1/60;
-    setWpm(Math.round(correct / minutes));
-    setAccuracy(inputWords.length > 0 ? Math.round((correct / inputWords.length) * 100) : 0);
+    setWpm(Math.round(correctCount / minutes));
     
-    if (val.length >= text.length) {
+    const totalAttempted = activeIndex;
+    setAccuracy(totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 100);
+    
+    if (activeIndex >= originalWords.length) {
       endTest();
     }
   };
@@ -108,19 +154,20 @@ export function TypingTest() {
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
-  // Render text with highlights
   const renderText = () => {
-    const inputWords = input.split(' ');
-    const originalWords = text.split(' ');
+    const { wordStates, originalWords } = evaluateTyping(input, text);
     
     return originalWords.map((word, idx) => {
-      let colorClass = "text-slate-500"; // default
-      if (idx < inputWords.length - 1 || (idx === inputWords.length - 1 && input.endsWith(' '))) {
-        colorClass = word === inputWords[idx] ? "text-green-600 bg-green-50" : "text-red-600 bg-red-50 underline";
-      } else if (idx === inputWords.length - 1) {
-        colorClass = word.startsWith(inputWords[idx]) ? "text-blue-600 bg-blue-50" : "text-red-600 bg-red-50";
-      }
-      return <span key={idx} className={`${colorClass} rounded-sm transition-colors duration-150`}>{word} </span>;
+      const state = wordStates[idx];
+      let colorClass = "text-slate-500"; 
+      let isId = false;
+
+      if (state === 'correct') colorClass = "text-green-600 bg-green-50";
+      else if (state === 'incorrect') colorClass = "text-red-600 bg-red-50 underline";
+      else if (state === 'active-correct') { colorClass = "text-blue-600 bg-blue-50 border-b-2 border-blue-600"; isId = true; }
+      else if (state === 'active-incorrect') { colorClass = "text-red-600 bg-red-50 border-b-2 border-red-600"; isId = true; }
+
+      return <span key={idx} id={isId ? 'active-word' : undefined} className={`${colorClass} rounded-sm transition-colors duration-150 leading-loose`}>{word} </span>;
     });
   };
 
@@ -177,7 +224,7 @@ export function TypingTest() {
             </div>
           </div>
 
-          <div className="mb-6 p-6 bg-slate-50 rounded-lg border border-slate-200 text-lg leading-relaxed select-none h-48 overflow-y-auto font-serif">
+          <div className="mb-6 p-6 bg-slate-50 rounded-lg border border-slate-200 text-lg select-none h-48 overflow-y-auto font-serif relative scroll-smooth">
             {renderText()}
           </div>
 
@@ -197,7 +244,7 @@ export function TypingTest() {
               <p className="text-slate-600 mb-6">
                 Lograste {correctWords} palabras correctas en {selectedTime * 60 - timeLeft} segundos.
                 {selectedTime >= 4 && correctWords >= 100 ? (
-                  <span className="block mt-2 text-emerald-600 font-bold">¡Aprobarías el examen oficial!</span>
+                  <span className="block mt-2 text-emerald-600 font-bold">¡Aprobarías el examen oficial! Lograste un margen excelente de {correctWords} palabras.</span>
                 ) : selectedTime >= 4 ? (
                   <span className="block mt-2 text-red-600 font-bold">Aún te faltan alcanzar las 100 palabras en 4 minutos. ¡Sigue practicando!</span>
                 ) : null}
