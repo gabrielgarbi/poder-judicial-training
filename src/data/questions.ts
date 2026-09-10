@@ -126,5 +126,75 @@ export const questions: Question[] = [
     ],
     correctAnswerIndex: 1,
     explanation: "La flagrancia permite un proceso veloz (generalmente oral) cuando la prueba del delito es evidente por haberse sorprendido al autor in fraganti."
+  },
+  {
+    id: 11,
+    question: "¿Qué es el derecho constitucional?",
+    options: ["Rama del derecho penal", "Rama del derecho público interno que estudia la estructura del Estado y los derechos fundamentales", "Rama del derecho privado", "Un tratado internacional"],
+    correctAnswerIndex: 1,
+    explanation: "Es la rama fundamental del derecho público que organiza al Estado y consagra los derechos y garantías."
+  },
+  {
+    id: 12,
+    question: "¿Qué sistema de gobierno adopta la República Argentina según el artículo 1 de la Constitución?",
+    options: ["Monárquico y parlamentario", "Representativo, republicano y federal", "Unitario y democrático", "Presidencialista y unitario"],
+    correctAnswerIndex: 1,
+    explanation: "El artículo 1 establece que la Nación Argentina adopta para su gobierno la forma representativa republicana federal."
+  },
+  {
+    id: 13,
+    question: "¿Qué principio consagra el artículo 18 de la Constitución Nacional respecto al proceso penal?",
+    options: ["Culpabilidad presunta", "Principio de inocencia y juicio previo", "Inquisición secreta", "Prisión perpetua automática"],
+    correctAnswerIndex: 1,
+    explanation: "Consagra que ningún habitante puede ser penado sin juicio previo, garantizando así la defensa en juicio y el principio de inocencia."
+  },
+  {
+    id: 14,
+    question: "¿Cuál es el órgano máximo del Poder Judicial en la Provincia de San Juan?",
+    options: ["El Tribunal Oral", "La Corte de Justicia", "El Consejo de la Magistratura", "El Juzgado de Paz"],
+    correctAnswerIndex: 1,
+    explanation: "La Corte de Justicia es el máximo tribunal provincial y ejerce la superintendencia de todo el Poder Judicial."
+  },
+  {
+    id: 15,
+    question: "¿Qué función cumple el Ministerio Público Fiscal en el sistema acusatorio?",
+    options: ["Dictar sentencias", "Asistir al imputado", "Investigar los delitos y promover la acción penal pública", "Administrar las cárceles"],
+    correctAnswerIndex: 2,
+    explanation: "El Ministerio Público Fiscal es el órgano encargado de llevar adelante la investigación y la acusación penal."
+  },
+  {
+    id: 16,
+    question: "¿Qué es la acción de amparo?",
+    options: ["Un recurso para pedir indemnización", "Una acción judicial rápida y expedita para proteger derechos constitucionales cuando no hay otro remedio", "Un permiso de construcción", "Una apelación ordinaria"],
+    correctAnswerIndex: 1,
+    explanation: "El amparo protege derechos y garantías (salvo la libertad física, que está cubierta por el hábeas corpus) de forma rápida."
+  },
+  {
+    id: 17,
+    question: "En Derecho de Familia, ¿qué es la responsabilidad parental (ex patria potestad)?",
+    options: ["El deber del Estado de educar", "El conjunto de deberes y derechos de los progenitores sobre la persona y bienes del hijo", "El derecho de los abuelos", "La cuota alimentaria"],
+    correctAnswerIndex: 1,
+    explanation: "Se define como los deberes y derechos de los padres para el cuidado, desarrollo y educación integral de sus hijos menores de edad."
+  },
+  {
+    id: 18,
+    question: "¿Cuál de estos es un principio rector en los procesos de familia?",
+    options: ["Escritura estricta", "Búsqueda del culpable", "Oralidad, inmediación y resolución pacífica de conflictos", "Publicidad total en los medios"],
+    correctAnswerIndex: 2,
+    explanation: "Se busca un proceso más ágil y humano mediante la oralidad y el contacto directo del juez (inmediación), protegiendo la intimidad."
+  },
+  {
+    id: 19,
+    question: "¿Qué es el Hábeas Corpus?",
+    options: ["Garantía que protege la libertad física o ambulatoria frente a arrestos arbitrarios", "Un impuesto", "Un tipo de contrato laboral", "Una ley municipal"],
+    correctAnswerIndex: 0,
+    explanation: "Es la acción que procede ante detenciones ilegales o agravamiento ilegítimo de las condiciones de detención."
+  },
+  {
+    id: 20,
+    question: "¿A partir de qué edad las personas son consideradas mayores de edad según el Código Civil y Comercial?",
+    options: ["16 años", "18 años", "21 años", "14 años"],
+    correctAnswerIndex: 1,
+    explanation: "La mayoría de edad se alcanza a los 18 años, momento en el cual la persona adquiere plena capacidad de ejercicio."
   }
 ];
