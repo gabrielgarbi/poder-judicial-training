@@ -69,7 +69,7 @@ export const questions: Question[] = [
   },
   {
     id: 6,
-    question: "Según la Ley de Protección Integral a las Mujeres (Ley 26.485), ¿qué tipo de violencia causa daño emocional y disminución de la autoestima?",
+    question: "Según la Ley de Protección Integral a las Mujeres, ¿qué tipo de violencia causa daño emocional y disminución de la autoestima?",
     options: [
       "Violencia física.",
       "Violencia económica.",
@@ -102,5 +102,29 @@ export const questions: Question[] = [
     ],
     correctAnswerIndex: 1,
     explanation: "El equipo de salud adopta inicialmente la internación, pero el juez controla inmediatamente su legalidad."
+  },
+  {
+    id: 9,
+    question: "¿Qué es el interés superior del niño?",
+    options: [
+      "El derecho de los padres a decidir libremente la educación de sus hijos.",
+      "Un principio que obliga a que toda decisión que afecte a menores debe considerar primordialmente la máxima satisfacción de sus derechos.",
+      "La obligación del Estado de proveer subsidios a todas las familias.",
+      "Una doctrina que prioriza siempre el cuidado materno frente al paterno."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "El interés superior del niño es un principio rector consagrado en la Convención sobre los Derechos del Niño que obliga a priorizar sus derechos en toda decisión que los afecte."
+  },
+  {
+    id: 10,
+    question: "¿Cuál es el objetivo principal del procedimiento de flagrancia?",
+    options: [
+      "Aumentar las penas de los delitos cometidos de noche.",
+      "Agilizar el juzgamiento de delitos cuando el autor es sorprendido en el momento de cometer el hecho o inmediatamente después.",
+      "Excusar de prisión a todos los delincuentes primarios.",
+      "Evitar la participación del Ministerio Público Fiscal en el proceso."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La flagrancia permite un proceso veloz (generalmente oral) cuando la prueba del delito es evidente por haberse sorprendido al autor in fraganti."
   }
 ];

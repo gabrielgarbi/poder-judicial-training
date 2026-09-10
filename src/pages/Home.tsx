@@ -54,6 +54,13 @@ export function Home() {
       icon: BookOpen,
       path: '/quiz',
       color: 'bg-purple-100 text-purple-700'
+    },
+    {
+      title: 'Tarjetas de Estudio',
+      desc: 'Flashcards para repasar y memorizar los conceptos teóricos clave de todo el programa del cuadernillo.',
+      icon: BookOpen,
+      path: '/flashcards',
+      color: 'bg-amber-100 text-amber-700'
     }
   ];
 
@@ -69,7 +76,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {modules.map((m) => {
           const Icon = m.icon;
           return (

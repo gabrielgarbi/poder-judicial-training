@@ -5,6 +5,7 @@ import { TypingTest } from './pages/TypingTest';
 import { SpellingTest } from './pages/SpellingTest';
 import { QuizTest } from './pages/QuizTest';
 import { Dashboard } from './pages/Dashboard';
+import { Flashcards } from './pages/Flashcards';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="typing" element={<TypingTest />} />
           <Route path="spelling" element={<SpellingTest />} />
           <Route path="quiz" element={<QuizTest />} />
+          <Route path="flashcards" element={<Flashcards />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
