@@ -101,11 +101,11 @@ export function SpellingTest() {
       const normOw = normalizeWord(origWord);
       
       if (normIw === normOw) {
-        return <span key={i} className="text-green-700 bg-green-50 mx-1">{iw}</span>;
+        return <span key={i} className="text-green-700 bg-green-50 mx-1">{iw} </span>;
       } else if (removeAccents(normIw) === removeAccents(normOw)) {
-        return <span key={i} className="text-yellow-700 bg-yellow-100 mx-1 underline tooltip" title={`Era: ${origWord}`}>{iw || '_'}</span>;
+        return <span key={i} className="text-yellow-700 bg-yellow-100 mx-1 underline tooltip" title={`Era: ${origWord}`}>{iw || '_'} </span>;
       } else {
-        return <span key={i} className="text-red-700 bg-red-100 mx-1 line-through tooltip" title={`Era: ${origWord}`}>{iw || '_'}</span>;
+        return <span key={i} className="text-red-700 bg-red-100 mx-1 line-through tooltip" title={`Era: ${origWord}`}>{iw || '_'} </span>;
       }
     });
   };
