@@ -61,6 +61,13 @@ export function Home() {
       icon: BookOpen,
       path: '/flashcards',
       color: 'bg-amber-100 text-amber-700'
+    },
+    {
+      title: 'Temario Oficial',
+      desc: 'Consulta los ejes temáticos oficiales extraídos del cuadernillo para organizar tu estudio.',
+      icon: BookOpen,
+      path: '/topics',
+      color: 'bg-indigo-100 text-indigo-700'
     }
   ];
 
@@ -76,7 +83,7 @@ export function Home() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {modules.map((m) => {
           const Icon = m.icon;
           return (

@@ -10,6 +10,7 @@ export function Layout() {
     { path: '/spelling', label: 'Ortografía', icon: SpellCheck },
     { path: '/quiz', label: 'Teoría', icon: BookOpen },
     { path: '/flashcards', label: 'Flashcards', icon: BookOpen },
+    { path: '/topics', label: 'Temas', icon: BookOpen },
     { path: '/dashboard', label: 'Progreso', icon: BarChart3 },
   ];
 

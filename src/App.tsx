@@ -6,6 +6,7 @@ import { SpellingTest } from './pages/SpellingTest';
 import { QuizTest } from './pages/QuizTest';
 import { Dashboard } from './pages/Dashboard';
 import { Flashcards } from './pages/Flashcards';
+import { StudyTopics } from './pages/StudyTopics';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="spelling" element={<SpellingTest />} />
           <Route path="quiz" element={<QuizTest />} />
           <Route path="flashcards" element={<Flashcards />} />
+          <Route path="topics" element={<StudyTopics />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
