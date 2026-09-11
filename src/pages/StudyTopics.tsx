@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, ArrowLeft, BookText } from 'lucide-react';
+import { ArrowLeft, BookText } from 'lucide-react';
 import { studyTopics } from '../data/topics';
 
 export function StudyTopics() {
@@ -19,9 +19,23 @@ export function StudyTopics() {
         <h2 className="text-3xl font-bold text-slate-800 mb-4">{selectedTopic.title}</h2>
         <hr className="mb-8 border-slate-200" />
         <div className="prose prose-slate max-w-none prose-lg">
-          <p className="text-slate-800 leading-relaxed font-serif whitespace-pre-line text-lg text-justify">
-            {selectedTopic.content}
-          </p>
+          {selectedTopic.content.map((block, idx) => {
+            const isHeading = block === block.toUpperCase() && block.length < 150 && block.length > 5;
+            const isArticle = block.startsWith('ARTICULO') || block.startsWith('ARTÍCULO');
+            
+            if (isHeading || isArticle) {
+              return (
+                <h3 key={idx} className="text-xl font-bold text-slate-800 mt-8 mb-4 border-b border-slate-100 pb-2">
+                  {block}
+                </h3>
+              );
+            }
+            return (
+              <p key={idx} className="text-slate-800 leading-relaxed font-serif text-lg text-justify mb-4">
+                {block}
+              </p>
+            );
+          })}
         </div>
       </div>
     );
@@ -48,7 +62,7 @@ export function StudyTopics() {
           >
             <div>
               <h3 className="text-xl font-bold text-primary mb-3">{topic.title}</h3>
-              <p className="text-slate-600 text-sm line-clamp-3 mb-4">{topic.content.substring(0, 150)}...</p>
+              <p className="text-slate-600 text-sm line-clamp-3 mb-4">{topic.content[0] ? topic.content[0].substring(0, 150) : ""}...</p>
             </div>
             <span className="text-secondary font-medium text-sm flex items-center">
               Leer módulo <ArrowLeft className="ml-1 rotate-180" size={16} />
