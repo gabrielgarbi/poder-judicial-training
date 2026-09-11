@@ -63,8 +63,8 @@ export function Home() {
       color: 'bg-amber-100 text-amber-700'
     },
     {
-      title: 'Temario Oficial',
-      desc: 'Consulta los ejes temáticos oficiales extraídos del cuadernillo para organizar tu estudio.',
+      title: 'Material de Estudio',
+      desc: 'Lee el cuadernillo oficial completo de 365 páginas, dividido por módulos.',
       icon: BookOpen,
       path: '/topics',
       color: 'bg-indigo-100 text-indigo-700'

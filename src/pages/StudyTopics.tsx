@@ -1,61 +1,60 @@
 import { useState } from 'react';
-import { BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { BookOpen, ArrowLeft, BookText } from 'lucide-react';
 import { studyTopics } from '../data/topics';
 
 export function StudyTopics() {
-  const [expandedTopic, setExpandedTopic] = useState<number | null>(null);
+  const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
-  const toggleTopic = (id: number) => {
-    if (expandedTopic === id) {
-      setExpandedTopic(null);
-    } else {
-      setExpandedTopic(id);
-    }
-  };
+  const selectedTopic = studyTopics.find(t => t.id === activeTopic);
+
+  if (activeTopic && selectedTopic) {
+    return (
+      <div className="max-w-5xl mx-auto p-4 md:p-8 bg-white rounded-xl shadow-sm border border-slate-200 mt-4">
+        <button 
+          onClick={() => setActiveTopic(null)}
+          className="flex items-center text-secondary hover:text-blue-800 mb-6 transition-colors font-medium"
+        >
+          <ArrowLeft className="mr-2" size={20} /> Volver al Índice
+        </button>
+        <h2 className="text-3xl font-bold text-slate-800 mb-4">{selectedTopic.title}</h2>
+        <hr className="mb-8 border-slate-200" />
+        <div className="prose prose-slate max-w-none prose-lg">
+          <p className="text-slate-800 leading-relaxed font-serif whitespace-pre-line text-lg text-justify">
+            {selectedTopic.content}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8">
+    <div className="max-w-5xl mx-auto p-4 md:p-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-slate-800 flex items-center mb-2">
-          <BookOpen className="mr-2 text-primary" />
-          Temas de Estudio - Programa Oficial
+        <h2 className="text-3xl font-bold text-slate-800 flex items-center mb-2">
+          <BookText className="mr-3 text-primary" size={32} />
+          Material de Estudio Oficial
         </h2>
-        <p className="text-slate-600">
-          Listado de los temas basados en el cuadernillo oficial de ingreso al Poder Judicial de San Juan. Haz click en un tema para leer el resumen teórico.
+        <p className="text-slate-600 text-lg">
+          Lee el cuadernillo completo de 365 páginas directamente desde aquí. Selecciona un módulo para comenzar a estudiar.
         </p>
       </div>
 
-      <div className="grid gap-4">
-        {studyTopics.map((topic) => {
-          const isExpanded = expandedTopic === topic.id;
-          return (
-            <div 
-              key={topic.id} 
-              className={`bg-white rounded-xl shadow-sm border ${isExpanded ? 'border-primary ring-1 ring-primary' : 'border-slate-200'} hover:shadow-md transition-all cursor-pointer overflow-hidden`}
-              onClick={() => toggleTopic(topic.id)}
-            >
-              <div className="p-6 flex justify-between items-center">
-                <div>
-                  <h3 className={`text-xl font-bold mb-2 ${isExpanded ? 'text-primary' : 'text-slate-800'}`}>
-                    {topic.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm">{topic.description}</p>
-                </div>
-                <div className="ml-4 text-slate-400">
-                  {isExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-                </div>
-              </div>
-              
-              {isExpanded && (
-                <div className="px-6 pb-6 pt-2 bg-slate-50 border-t border-slate-100">
-                  <p className="text-slate-800 leading-relaxed font-serif text-lg whitespace-pre-line">
-                    {topic.content}
-                  </p>
-                </div>
-              )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {studyTopics.map((topic) => (
+          <div 
+            key={topic.id} 
+            className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-primary hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+            onClick={() => setActiveTopic(topic.id)}
+          >
+            <div>
+              <h3 className="text-xl font-bold text-primary mb-3">{topic.title}</h3>
+              <p className="text-slate-600 text-sm line-clamp-3 mb-4">{topic.content.substring(0, 150)}...</p>
             </div>
-          );
-        })}
+            <span className="text-secondary font-medium text-sm flex items-center">
+              Leer módulo <ArrowLeft className="ml-1 rotate-180" size={16} />
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
