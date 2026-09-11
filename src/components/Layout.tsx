@@ -43,7 +43,7 @@ export function Layout() {
         </div>
       </header>
 
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-4xl">
+      <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
         <Outlet />
       </main>
 
