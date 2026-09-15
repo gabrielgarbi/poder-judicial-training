@@ -16,7 +16,31 @@ export function TypingTest() {
   const [accumulatedAttempted, setAccumulatedAttempted] = useState(0);
 
   // Derive pool of texts
-  const textPool = studyTopics.flatMap(t => t.content).filter(c => c.split(' ').length > 20 && c.toUpperCase() !== c).map(c => c.replace(/\s+/g, ' ').trim());
+  const buildPool = () => {
+  const allBlocks = studyTopics.flatMap(t => t.content).filter(c => c.toUpperCase() !== c);
+  const pool = [];
+  let currentChunk = "";
+  let currentWords = 0;
+  
+  for (const block of allBlocks) {
+    const cleanBlock = block.replace(/\s+/g, ' ').trim();
+    if (!cleanBlock) continue;
+    
+    currentChunk += (currentChunk ? " " : "") + cleanBlock;
+    currentWords += cleanBlock.split(' ').length;
+    
+    if (currentWords >= 80) {
+      pool.push(currentChunk);
+      currentChunk = "";
+      currentWords = 0;
+    }
+  }
+  if (currentChunk.split(' ').length >= 30) {
+    pool.push(currentChunk);
+  }
+  return pool;
+};
+const textPool = buildPool();
 
   
   const [wpm, setWpm] = useState(0);
