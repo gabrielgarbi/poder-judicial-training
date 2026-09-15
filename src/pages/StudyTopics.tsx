@@ -22,7 +22,19 @@ export function StudyTopics() {
         if (currentSection.content.length > 0 || currentSection.title !== 'Introducción') {
           secs.push(currentSection);
         }
-        currentSection = { title: block, content: [] };
+        
+        let title = block;
+        let bodyText = "";
+        
+        if (isArticle) {
+          const splitIdx = block.indexOf('. ');
+          if (splitIdx !== -1 && splitIdx < 150) {
+            title = block.substring(0, splitIdx + 1);
+            bodyText = block.substring(splitIdx + 2);
+          }
+        }
+        
+        currentSection = { title: title, content: bodyText ? [bodyText] : [] };
       } else {
         if (block.trim().length > 0) {
           currentSection.content.push(block);
