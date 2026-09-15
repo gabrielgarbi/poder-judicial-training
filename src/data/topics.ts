@@ -8,208 +8,6 @@ export interface Topic {
 export const studyTopics: Topic[] = [
   {
     id: 1,
-    title: "TEMA I. DERECHO CONSTITUCIONAL",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `La   Constitución.  Concepto.   Clases   de   Constitución.   Caracterización   de   la   Constitución   Argentina.`,
-      `Supremacía de la Constitución. Orden de prelación de las normas. Partes dogmática y orgánica.`,
-      `El   Estado   Federal.  Estructura.   Relaciones   de   la   estructura   federal.   Reparto   de   competencias.   Las`,
-      `Provincias. Los Municipios. La Ciudad de Buenos Aires.`,
-      `Declaraciones, derechos y garantías. Concepto. El sistema de garantías y la seguridad jurídica. El derecho`,
-      `a   la   jurisdicción,   hoy   "derecho   a   la   tutela   judicial   efectiva".   Tratados   internacionales   con   jerarquía`,
-      `constitucional. Limites en el sistema de derecho. De la libertad corporal en el proceso penal. El principio de`,
-      `inocencia. La ley y el juicio previo en materia penal. La irretroactividad de la ley penal. Inviolabilidad del`,
-      `domicilio. Inviolabilidad de correspondencia y papeles privados. El derecho de propiedad. Hábeas corpus.`,
-      `El amparo. Amparo por mora. Secreto periodístico. Diferencia con el amparo. El debido proceso.`,
-      `División de Poderes.  Poder legislativo: Estructura y funciones; Poder ejecutivo: Estructura y funciones;`,
-      `Poder   Judicial:   Estructura   y   competencia.   Competencia   de   la   Corte   Suprema.   Control   de`,
-      `constitucionalidad. Consejo de la Magistratura. Jurado de Enjuiciamiento.`
-    ]
-  },
-  {
-    id: 2,
-    title: "TEMA II. CONSTITUCIÓN PROVINCIAL",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Constitución de la Provincia de San Juan: Análisis y estudio de su articulado.`
-    ]
-  },
-  {
-    id: 3,
-    title: "TEMA III. ORGANIZACIÓN DEL PODER JUDICIAL DE SAN JUAN.",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Organización y distribución de funciones del Poder Judicial. Introducción.`,
-      `Jurisdicción y Competencia. Distinción. Competencia territorial. Competencia material. Competencia por`,
-      `la cuantía. Competencia funcional o de grado. Oficina Judicial.`,
-      `Corte de Justicia. Integración y competencias. Jurisprudencia vinculante.`,
-      `Otros  órganos y  dependencias del Poder  Judicial.  Ministerio Público Fiscal:  Concepto y fundamento`,
-      `institucional del Ministerio Público. Función y misión. Principios que rigen su funcionamiento. Integración`,
-      `del   Ministerio   Público   Fiscal.  Organización   del   Ministerio   Público   Fiscal   según   el   sistema  acusatorio.`,
-      `Unidad Fiscal de Investigación CAVIG (Centro de Abordaje de Violencia Intrafamiliar y de Género). Unidad`,
-      `Fiscal   de   Investigación   ANIVI   (Centro   Judicial   de  Abordaje   Integral   de   Niños,   Niñas   y   Adolescentes`,
-      `Víctimas). Unidad Fiscal de Investigación Delitos Especiales. Unidad Fiscal de Investigación Delitos contra`,
-      `la   Propiedad.   Unidad   Fiscal   de   Investigación   de   Delitos   Informáticos   y   Estafas.   Unidad   Fiscal   de`,
-      `Investigación Genérica. Unidad Fiscal de Investigación Flagrancia. Unidad Fiscal del Norte. Unidad Fiscal de`,
-      `Ejecución   Penal.   Dependencias  operativas   complementarias.  El   Ministerio   Público   de   la   Defensa.   Las`,
-      `Asesorías Oficiales de Menores e Incapaces.`,
-      `Registro Inmobiliario.  Escuela de Capacitación Judicial. Centro Judicial de Mediación.`,
-      `Órganos jurisdiccionales distintos al Poder Judicial. Tribunal electoral.`,
-      `Gobierno y administración del Poder Judicial. Gobierno y Administración. Presupuesto. Garantías que`,
-      `aseguran la independencia judicial.`,
-      `Procedimiento de designación de magistrados. Requisitos. Consejo de la Magistratura. Remoción de`,
-      `magistrados: sistemas.`,
-      `Reglamentos del Poder Judicial. Derechos y Obligaciones del empleado Judicial. Régimen de sanciones.`,
-      `Régimen de licencias.`
-    ]
-  },
-  {
-    id: 4,
-    title: "TEMA IV. MINISTERIO PÚBLICO DE LA PROVINCIA DE SAN JUAN",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Ministerio Público de la Provincia de San Juan. Ley Provincial Nº 633-E, según numeración del Digesto`,
-      `Jurídico (antes Ley 7014).   Defensa Oficial. Ley Provincial Nº 2179-E, según numeración del Digesto`,
-      `Jurídico.`
-    ]
-  },
-  {
-    id: 5,
-    title: "TEMA V. DERECHO CIVIL Y DERECHO PROCESAL CIVIL",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Derecho Civil. Nociones de Derecho Civil.Titulo Preliminar`,
-      `Persona. La Persona Humana. Los Sujetos de Derecho. Los atributos de la Personalidad: Derechos de la`,
-      `Personalidad. El Nombre de las Personas   Humanas. El Domicilio. Capacidad. Persona Menor de Edad.`,
-      `Personas Jurídicas.`,
-      `Hechos y Actos Jurídicos. Contrato.`,
-      `Derecho Procesal Civil. El Proceso.  Proceso, procedimiento: nociones y conceptos - Partes en el proceso:`,
-      `Concepto – Muerte o incapacidad de una de las partes – Sustitución de parte.  Domicilio. Distintos tipos de`,
-      `domicilio:   Domicilio   ad-litem   o   procesal.   Domicilio   electrónico.   Domicilio   real.   Subsistencia   de   los`,
-      `domicilios -  Patrocinio letrado – Excepciones - Representación: Legal o necesaria, procesal o convencional`,
-      `- Gestor Procesal - Efectos de la presentación del poder y admisión de la personería  - Cesación de la`,
-      `representación - Unificación de la personería.`,
-      `Oficios y Exhortos: Formalidades - Recaudos generales previstos por el art. 3 de la Ley 22172 – Trámite.`,
-      `Notificaciones:  Concepto   -   Tipos   de   notificaciones:   personal,   por   cédula,   por   telegrama   o   carta`,
-      `documento, postal, automática, tácita y por edictos - Notificación electrónica.`,
-      `Tiempos   de   los   actos   procesales:  Consideraciones   generales   –   Días   y   horas   hábiles   e   inhábiles   –`,
-      `Habilitación expresa – Habilitación tácita – Plazos: Cómputo – Interrupción y suspensión – Suspensión y`,
-      `abreviación convencional – Suspensión y abreviación convencional - declaración de irrupción y suspensión.`,
-      `Ampliación de plazos – Extensión a los funcionarios públicos.`
-    ]
-  },
-  {
-    id: 6,
-    title: "TEMA VI. DERECHO LABORAL Y PROCESAL LABORAL",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Lineamientos generales. Trabajo humano. El trabajo en la Ley de Contrato de Trabajo (LCT). Definición.`,
-      `Caracteres. Relación de dependencia.`,
-      `Derecho   del  Trabajo.  Concepto.  Caracteres.   Carácter   protectorio   del   Derecho   del  Trabajo.   Fuentes.`,
-      `Clasificación de fuentes.`,
-      `Principios del Derecho del Trabajo.  Concepto. Finalidad. Funciones. Principio protectorio. Principio de`,
-      `irrenunciabilidad de los derechos. Principio de la continuidad de la relación laboral. Principio de primacía`,
-      `de la realidad. Principio de buena fe. Principio de no discriminación e igualdad en el trato. Principio de`,
-      `equidad. Principio de justicia social. Principio de gratuidad. Principio de razonabilidad.`,
-      `Medios técnico-jurídicos. Definición. Enumeración.`,
-      `Derecho  Procesal  Laboral.  Definición.  Los  principios del   proceso  laboral.  Principios  fines  y  principios`,
-      `operativos. Principio tutelar del trabajador. Principio de veracidad o primacía de la realidad. Principio de`,
-      `celeridad procesal.`,
-      `Partes   en   el   proceso   laboral.  Sujetos.   Domicilio.   Representación.  Carta   poder.   Beneficio   de   justicia`,
-      `gratuita. Patrocinio letrado.`,
-      `Tipos de procesos.`,
-      `Organización   de   la   justicia   laboral.  Órganos   jurisdiccionales.  Jurisdicción.  Competencia   por   materia.`,
-      `Conexidad.`,
-      `Actos procesales. Carácter de las actuaciones. Perentoriedad de los plazos. Vistas y traslados. Audiencias.`,
-      `Trámite de incidentes.`,
-      `Actos   procesales   específicos   del   derecho   procesal   laboral.  Conciliación.   Inversión   de   la   carga   de   la`,
-      `prueba.  Síntesis del proceso laboral (ordinario) en la provincia de San Juan.`
-    ]
-  },
-  {
-    id: 7,
-    title: "TEMA VII. DERECHO DE LAS FAMILIAS Y PROCESO DE FAMILIA",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Derecho de las Familias. Concepto y Principios Generales. Marco Constitucional  y Convencional.`,
-      `El Proceso de Familia. Características y Principios : Tutela Judicial Efectiva. Inmediación.   Buena   Fe   y`,
-      `Lealtad Procesal. Oficiosidad. Oralidad y Solución Consensuada. Perspectiva de Género.`,
-      `Competencia y Organización del Fuero de Familia. Especialidad. Competencia Material. Competencia`,
-      `Territorial y Centro de Vida. Prevención y Conexidad. Organización del Órgano Judicial.`,
-      `Niñas, Niños y Adolescentes En El Proceso. De Objetos de Protección a Sujetos de Derechos. Autonomía`,
-      `Progresiva.`,
-      `Representación   y   Participación   Procesal   De   Niñas,   Niños   y  Adolescentes.   Representación   por   los`,
-      `Progenitores. El abogado o abogada del Niño. Tutor o Tutora especial. Tutor ad litem. Asesoría Oficial.`,
-      `Ministerio Público.`,
-      `Actos Procesales y Lenguaje Claro. Audiencias`,
-      `Cuestiones Procesales del Fuero de las Familias. Prueba en los Procesos de Familia. Medidas Cautelares,`,
-      `Provisionales y Tutela Anticipada`,
-      `Matrimonio   y   Divorcio..   Principios   del   Matrimonio.   Divorcio.   Compensación   Económica.   Régimen`,
-      `Patrimonial del Matrimonio`,
-      `Uniones Convivenciales`,
-      `Parentesco`,
-      `Filiación. Filiación por Naturaleza: Acciones de Filiación por Naturaleza. Proceso en San Juan.`,
-      `Técnicas de Reproducción Humana Asistida. Adopción: Declaración de situación de adoptabilidad. Guarda`,
-      `con fines de adopción. Juicio de adopción. Adopción de integración: particularidades procesales.`,
-      `Responsabilidad Parental. Titularidad y Ejercicio: Reglas del Ejercicio de da Responsabilidad Parental.`,
-      `Actos que requieren el consentimiento de ambos Progenitores.`,
-      `Cuidado  Personal.  Plan  de  Parentalidad.  Deber de Información.  Guarda  a  un pariente. Delegación del`,
-      `Ejercicio de la Responsabilidad Parental. Privación y suspensión. Proceso de Parentalidad en San Juan.`,
-      `Alimentos. Alimentos de Hijas e Hijos. Hijas e Hijos mayores de edad con discapacidad. Alimentos a cargo`,
-      `de los ascendientes. Alimentos entre parientes. Alimentos entre cónyuges y después del divorcio. Uniones`,
-      `convivenciales   y   progenitor   afín.   Proceso   de   alimentos   en   el  CPF:  Alimentos   Provisorios.  Audiencia.`,
-      `Sentencia y retroactividad. Incumplimiento. Aumento, disminución y cese.`,
-      `Sistema de protección de derechos de niñas, niños y adolescentes.  Medidas de protección integral.`,
-      `Medidas excepcionales de protección: ¿quién dispone la medida excepcional y cuándo interviene el juez?:`,
-      `Actuación del organismo administrativo. Función del juez: control de legalidad. Audiencia y participación`,
-      `de la persona menor de edad. Seguimiento, prórroga y cese.`,
-      `Restricción a la capacidad, sistemas de apoyo e inhabilitación.  Principios aplicables. Restricción a la`,
-      `capacidad. Declaración excepcional de incapacidad. Sistemas de apoyo. Designación voluntaria de apoyos`,
-      `sin restricción de capacidad. Particularidad de San Juan. Inhabilitación por prodigalidad.`,
-      `Salud mental e internaciones. Control de legalidad de las internaciones involuntarias por razones de salud`,
-      `mental.   ¿quién   decide   la   internación?.  Comunicación   al   juez.   Defensa   de   la   persona   internada.   ¿qué`,
-      `controla el juez?. ¿puede el juez ordenar directamente una internación?. Control periódico y externación.`,
-      `Internaciones de niñas, niños y adolescentes.`,
-      `Violencia familiar y de género. Violencia familiar y violencia contra las mujeres: conceptos diferentes. Ley`,
-      `989-E y  Código  Procesal de Familia. ¿qué casos tramitan ante el fuero de las familias?. ¿quién  puede`,
-      `denunciar?.   ¿dónde   puede   realizarse   la   denuncia   en   san   juan?.   Medidas   que   puede   adoptar   el   juez.`,
-      `Carácter urgente y relación con otros procesos`
-    ]
-  },
-  {
-    id: 8,
-    title: "TEMA VIII. DERECHO PENAL Y PROCESAL PENAL",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Derecho Penal. Definición. Derecho Penal Sustantivo y Derecho Procesal Penal. Caracteres del Proceso`,
-      `Penal. Principios constitucionales del Derecho Procesal.`,
-      `Derecho procesal penal. Concepto. Sistemas procesales: caracterización.`,
-      `Diferencias de los distintos modelos procesales. Sistemas procesales vigentes en la Provincia de San Juan.`,
-      `El sistema procesal mixto regulado en la ley 754-o. Caracteres generales del sistema mixto (ley 754-o).`,
-      `Sistema procesal acusatorio (ley 1851-o) . Antecedentes. Implementación`,
-      `Nuevos roles en el proceso penal acusatorio.`,
-      `Noción del proceso acusatorio (ley 1851-o).`,
-      `Investigación penal preparatoria. Valoración inicial. Legajo de investigación. Formalización de la`,
-      `investigación penal preparatoria. Desarrollo de la investigación penal preparatoria. Cierre de la`,
-      `investigación penal preparatoria.`,
-      `Disponibilidad de la acción penal.`,
-      `Regulación del proceso especial de flagrancia.`
-    ]
-  },
-  {
-    id: 9,
-    title: "TEMA IX. NORMATIVA DE GÉNERO",
-    description: "Material oficial extraído del cuadernillo",
-    content: [
-      `Ley Nacional 26.485. Ley para prevenir, sancionar y erradicar la violencia (Arts. del 1 al 7 y del 16 al 40).`,
-      `Ley Provincial 989-E-. Protección contra la violencia familiar. Cedaw, Ley Nacional 23.179 . Convención`,
-      `sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer. Belém Do Pará, Ley Nacional`,
-      `24.632.  Convención Interamericana para Prevenir, Sancionar y Erradicar la Violencia contra La mujer -`,
-      `“Convención de Belém Do Pará”.`
-    ]
-  },
-  {
-    id: 10,
     title: "TEMA I.  DERECHO CONSTITUCIONAL",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -1029,7 +827,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 11,
+    id: 2,
     title: "TEMA II. CONSTITUCIÓN PROVINCIAL",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -2879,7 +2677,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 12,
+    id: 3,
     title: "TEMA III. ORGANIZACIÓN DEL PODER JUDICIAL DE SAN JUAN",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -4222,7 +4020,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 13,
+    id: 4,
     title: "TEMA IV. MINISTERIO PÚBLICO DE LA PROVINCIA DE SAN JUAN",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -4912,7 +4710,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 14,
+    id: 5,
     title: "TEMA V.  DERECHO CIVIL Y DERECHO PROCESAL CIVIL",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -6422,7 +6220,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 15,
+    id: 6,
     title: "TEMA VI.  DERECHO LABORAL Y PROCESAL LABORAL",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -7236,7 +7034,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 16,
+    id: 7,
     title: "TEMA VII. DERECHO DE LAS FAMILIAS Y PROCESO DE FAMILIA",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -8416,7 +8214,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 17,
+    id: 8,
     title: "TEMA VIII. DERECHO PENAL Y PROCESAL PENAL",
     description: "Material oficial extraído del cuadernillo",
     content: [
@@ -9103,7 +8901,7 @@ export const studyTopics: Topic[] = [
     ]
   },
   {
-    id: 18,
+    id: 9,
     title: "TEMA  IX. NORMATIVA DE GÉNERO",
     description: "Material oficial extraído del cuadernillo",
     content: [
