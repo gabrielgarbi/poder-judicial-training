@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useStorage } from '../hooks/useStorage';
-import { spellingTexts } from '../data/texts';
+import { studyTopics } from '../data/topics';
 import { SpellCheck } from 'lucide-react';
 
 export function SpellingTest() {
@@ -10,14 +10,44 @@ export function SpellingTest() {
   const [isFinished, setIsFinished] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
   
-  const [currentText, setCurrentText] = useState(spellingTexts[0]);
+  const [currentText, setCurrentText] = useState({ original: '', withErrors: '' });
   const [input, setInput] = useState('');
+
+  const [accumulatedScore, setAccumulatedScore] = useState(0);
+  const [accumulatedMax, setAccumulatedMax] = useState(0);
+
+  const textPool = studyTopics.flatMap(t => t.content).filter(c => c.split(' ').length > 20 && c.toUpperCase() !== c);
+
+  const introduceErrors = (text: string) => {
+    const words = text.split(' ');
+    return words.map(w => {
+      if (w.length < 4 || Math.random() > 0.3) return w; // 30% chance to have error
+      
+      let mod = w;
+      const roll = Math.random();
+      if (roll < 0.2) mod = mod.replace(/v/g, 'b');
+      else if (roll < 0.4) mod = mod.replace(/b/g, 'v');
+      else if (roll < 0.5) mod = mod.replace(/c/g, 's');
+      else if (roll < 0.6) mod = mod.replace(/s/g, 'c');
+      else if (roll < 0.7) mod = mod.replace(/h/g, '');
+      else if (roll < 0.8) mod = mod.replace(/ll/g, 'y');
+      else if (roll < 0.9) mod = mod.replace(/y/g, 'll');
+      else mod = mod.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+      return mod;
+    }).join(' ');
+  };
+
+  const getNewText = () => {
+    const original = textPool[Math.floor(Math.random() * textPool.length)];
+    return { original, withErrors: introduceErrors(original) };
+  };
+
   
   const [score, setScore] = useState(0);
   const [maxPossibleScore, setMaxPossibleScore] = useState(0);
 
   useEffect(() => {
-    const text = spellingTexts[Math.floor(Math.random() * spellingTexts.length)];
+    const text = getNewText();
     setCurrentText(text);
     setMaxPossibleScore(text.original.trim().split(/\s+/).length);
   }, []);
@@ -36,10 +66,15 @@ export function SpellingTest() {
 
   const startTest = () => {
     setTimeLeft(selectedTime * 60);
-    setInput(currentText.withErrors);
+    const initialText = getNewText();
+    setCurrentText(initialText);
+    setInput(initialText.withErrors);
+    setMaxPossibleScore(initialText.original.trim().split(/\s+/).length);
     setIsActive(true);
     setIsFinished(false);
     setScore(0);
+    setAccumulatedScore(0);
+    setAccumulatedMax(0);
   };
 
   const removeAccents = (str: string) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -74,13 +109,16 @@ export function SpellingTest() {
     setIsActive(false);
     setIsFinished(true);
     
-    const finalScore = calculateScore();
+    const finalScore = accumulatedScore + calculateScore();
+    const finalMax = accumulatedMax + maxPossibleScore;
+    
     setScore(finalScore);
+    setMaxPossibleScore(finalMax);
 
     saveResult({
       type: 'spelling',
       score: finalScore,
-      maxScore: maxPossibleScore,
+      maxScore: finalMax,
       duration: selectedTime * 60 - timeLeft,
     });
   };
@@ -174,13 +212,28 @@ export function SpellingTest() {
             </div>
           )}
 
+          
           {isActive && (
-            <div className="mt-4 flex justify-end">
+            <div className="mt-4 flex justify-between">
+              <button onClick={() => {
+                const currentScore = calculateScore();
+                setAccumulatedScore(accumulatedScore + currentScore);
+                setAccumulatedMax(accumulatedMax + maxPossibleScore);
+                
+                const nextText = getNewText();
+                setCurrentText(nextText);
+                setInput(nextText.withErrors);
+                setMaxPossibleScore(nextText.original.trim().split(/\s+/).length);
+              }} className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                Siguiente Texto
+              </button>
+              
               <button onClick={endTest} className="bg-slate-800 hover:bg-slate-900 text-white font-medium py-2 px-6 rounded-lg transition-colors">
                 Terminar y Evaluar
               </button>
             </div>
           )}
+
 
           {isFinished && (
             <div className="mt-6 text-center">
@@ -189,7 +242,7 @@ export function SpellingTest() {
                 Obtuviste {score} puntos de {maxPossibleScore} posibles en {selectedTime * 60 - timeLeft} segundos.
               </p>
               <button onClick={() => { 
-                  const nextText = spellingTexts[Math.floor(Math.random() * spellingTexts.length)];
+                  const nextText = getNewText();
                   setCurrentText(nextText);
                   setMaxPossibleScore(nextText.original.trim().split(/\s+/).length);
                   setIsFinished(false); 
