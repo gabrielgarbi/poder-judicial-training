@@ -1,24 +1,33 @@
-import { useState } from 'react';
-import { questions } from '../data/questions';
+import { useState, useEffect } from 'react';
+import { questions, type Question } from '../data/questions';
 import { BookOpen, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 
 export function Flashcards() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([]);
 
-  const currentCard = questions[currentIndex];
+  useEffect(() => {
+    // Shuffle the array on component mount so order is random every time
+    const shuffled = [...questions].sort(() => Math.random() - 0.5);
+    setShuffledQuestions(shuffled);
+  }, []);
+
+  if (shuffledQuestions.length === 0) return null;
+
+  const currentCard = shuffledQuestions[currentIndex];
 
   const handleNext = () => {
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % questions.length);
+      setCurrentIndex((prev) => (prev + 1) % shuffledQuestions.length);
     }, 150);
   };
 
   const handlePrev = () => {
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + questions.length) % questions.length);
+      setCurrentIndex((prev) => (prev - 1 + shuffledQuestions.length) % shuffledQuestions.length);
     }, 150);
   };
 
@@ -37,7 +46,7 @@ export function Flashcards() {
           <p className="text-slate-600 mt-1">Repasa los conceptos teóricos clave para el examen.</p>
         </div>
         <div className="text-slate-500 font-medium bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200">
-          {currentIndex + 1} / {questions.length}
+          {currentIndex + 1} / {shuffledQuestions.length}
         </div>
       </div>
 

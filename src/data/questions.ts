@@ -406,5 +406,605 @@ export const questions: Question[] = [
     options: ["Pone fin al proceso de forma definitiva y tiene fuerza de cosa juzgada material", "Suspende el juicio temporalmente", "Inicia la investigación preliminar", "Agrava la condena"],
     correctAnswerIndex: 0,
     explanation: "El sobreseimiento cierra el proceso de manera definitiva e irrevocable respecto del imputado a cuyo favor se dicta."
-  }
+  },
+  {
+    id: 51,
+    question: "¿Cuál es el máximo tribunal de la Provincia de San Juan?",
+    options: [
+      "El Tribunal Superior de Justicia.",
+      "La Corte de Justicia.",
+      "El Juzgado de Paz.",
+      "La Cámara de Apelaciones."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La Corte de Justicia."
+  },
+  {
+    id: 52,
+    question: "¿Quién ejerce el control de constitucionalidad en Argentina?",
+    options: [
+      "El Presidente de la Nación.",
+      "Solo el Poder Legislativo.",
+      "Todos los jueces (sistema difuso).",
+      "Solo la Corte Suprema."
+    ],
+    correctAnswerIndex: 2,
+    explanation: "Todos los jueces (sistema difuso)."
+  },
+  {
+    id: 53,
+    question: "El Ministerio Público Fiscal de San Juan tiene como función principal:",
+    options: [
+      "Organizar las elecciones.",
+      "Dictar sentencias definitivas.",
+      "Defender a los imputados sin recursos.",
+      "Promover la acción penal y defender la legalidad."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Promover la acción penal y defender la legalidad."
+  },
+  {
+    id: 54,
+    question: "¿Qué función cumple la Defensa Oficial?",
+    options: [
+      "Emitir leyes.",
+      "Controlar el presupuesto judicial.",
+      "Garantizar la defensa en juicio de quienes no pueden contratar un abogado particular.",
+      "Acusar a los delincuentes."
+    ],
+    correctAnswerIndex: 2,
+    explanation: "Garantizar la defensa en juicio de quienes no pueden contratar un abogado particular."
+  },
+  {
+    id: 55,
+    question: "El Consejo de la Magistratura tiene a su cargo:",
+    options: [
+      "El control de los fiscales.",
+      "El dictado de fallos supremos.",
+      "La recaudación de impuestos.",
+      "La selección de los magistrados inferiores."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La selección de los magistrados inferiores."
+  },
+  {
+    id: 56,
+    question: "El Jurado de Enjuiciamiento sirve para:",
+    options: [
+      "Nombrar al Gobernador.",
+      "Juzgar el mal desempeño o delitos de magistrados inferiores.",
+      "Designar jueces.",
+      "Juzgar a ciudadanos comunes."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Juzgar el mal desempeño o delitos de magistrados inferiores."
+  },
+  {
+    id: 57,
+    question: "En el sistema acusatorio adversarial, la investigación penal preparatoria está a cargo de:",
+    options: [
+      "El Juez de Garantías.",
+      "El Fiscal.",
+      "El Juez de Instrucción.",
+      "El Defensor Oficial."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "El Fiscal."
+  },
+  {
+    id: 58,
+    question: "El Juez de Garantías en el sistema acusatorio tiene como rol:",
+    options: [
+      "Defender al imputado.",
+      "Controlar el respeto de los derechos y garantías constitucionales durante la investigación.",
+      "Investigar los delitos.",
+      "Buscar las pruebas de cargo."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Controlar el respeto de los derechos y garantías constitucionales durante la investigación."
+  },
+  {
+    id: 59,
+    question: "¿Qué es el Procedimiento de Flagrancia?",
+    options: [
+      "Una mediación laboral.",
+      "Un procedimiento especial y expedito para quienes son sorprendidos cometiendo un delito.",
+      "Un juicio civil por deudas.",
+      "Un recurso ante la Corte Suprema."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Un procedimiento especial y expedito para quienes son sorprendidos cometiendo un delito."
+  },
+  {
+    id: 60,
+    question: "El principio de inocencia implica que:",
+    options: [
+      "Todos son culpables si hay sospecha.",
+      "Toda persona se presume inocente hasta que una sentencia firme demuestre lo contrario.",
+      "Nadie puede ir a la cárcel.",
+      "El acusado debe demostrar su inocencia."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Toda persona se presume inocente hasta que una sentencia firme demuestre lo contrario."
+  },
+  {
+    id: 61,
+    question: "El 'Habeas Corpus' procede ante:",
+    options: [
+      "Violaciones al derecho de propiedad.",
+      "Privaciones o amenazas ilegítimas a la libertad física.",
+      "Deudas comerciales.",
+      "Despidos sin causa."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Privaciones o amenazas ilegítimas a la libertad física."
+  },
+  {
+    id: 62,
+    question: "El principio de legalidad penal ('nullum crimen nulla poena sine lege') significa que:",
+    options: [
+      "No hay delito ni pena sin ley previa.",
+      "La ley penal es retroactiva.",
+      "El Código Penal no rige en las provincias.",
+      "Los jueces pueden crear delitos."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "No hay delito ni pena sin ley previa."
+  },
+  {
+    id: 63,
+    question: "¿Cuándo comienza la existencia de la persona humana según el CCyC?",
+    options: [
+      "Desde que se la inscribe en el Registro Civil.",
+      "A los 18 años.",
+      "Desde la concepción.",
+      "Desde el nacimiento."
+    ],
+    correctAnswerIndex: 2,
+    explanation: "Desde la concepción."
+  },
+  {
+    id: 64,
+    question: "¿Cuáles son atributos de la personalidad?",
+    options: [
+      "Patrimonio, deudas, profesión y residencia.",
+      "Nombre, capacidad, domicilio y estado.",
+      "Nacionalidad, religión y afiliación política.",
+      "Sexo, edad, peso y altura."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Nombre, capacidad, domicilio y estado."
+  },
+  {
+    id: 65,
+    question: "El divorcio vincular en el régimen actual argentino:",
+    options: [
+      "Es irrevocable.",
+      "Puede ser solicitado por uno o ambos cónyuges sin invocar causa.",
+      "Solo procede por adulterio o injurias graves.",
+      "Requiere que pasen 3 años de separación."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Puede ser solicitado por uno o ambos cónyuges sin invocar causa."
+  },
+  {
+    id: 66,
+    question: "¿Qué es la Responsabilidad Parental?",
+    options: [
+      "El conjunto de deberes y derechos de los progenitores sobre la persona y bienes del hijo.",
+      "La patria potestad exclusiva del padre.",
+      "El deber de los abuelos de cuidar a los nietos.",
+      "La obligación del Estado de mantener a los niños."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "El conjunto de deberes y derechos de los progenitores sobre la persona y bienes del hijo."
+  },
+  {
+    id: 67,
+    question: "Las uniones convivenciales producen:",
+    options: [
+      "Los mismos derechos hereditarios que el matrimonio.",
+      "La división de bienes en partes iguales a los 6 meses.",
+      "Efectos jurídicos si cumplen los requisitos legales (como convivencia pública, notoria y estable).",
+      "Ningún efecto legal."
+    ],
+    correctAnswerIndex: 2,
+    explanation: "Efectos jurídicos si cumplen los requisitos legales (como convivencia pública, notoria y estable)."
+  },
+  {
+    id: 68,
+    question: "El proceso de familia se caracteriza por ser:",
+    options: [
+      "Interdisciplinario y enfocado en la pacificación del conflicto.",
+      "Estrictamente escrito y público.",
+      "Inquisitivo y demorado.",
+      "Unilateral y secreto."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Interdisciplinario y enfocado en la pacificación del conflicto."
+  },
+  {
+    id: 69,
+    question: "El principio 'in dubio pro operario' significa que:",
+    options: [
+      "El trabajador siempre tiene la razón en los hechos.",
+      "En caso de duda, se favorece al empleador.",
+      "El empleador no debe probar nada.",
+      "En caso de duda sobre la interpretación de una norma, se aplica la más favorable al trabajador."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "En caso de duda sobre la interpretación de una norma, se aplica la más favorable al trabajador."
+  },
+  {
+    id: 70,
+    question: "El contrato de trabajo se presume celebrado:",
+    options: [
+      "Por temporada.",
+      "Por tiempo indeterminado.",
+      "Como trabajo eventual.",
+      "A plazo fijo por 6 meses."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Por tiempo indeterminado."
+  },
+  {
+    id: 71,
+    question: "¿Qué es el principio de irrenunciabilidad?",
+    options: [
+      "El derecho a no renunciar al empleo.",
+      "La obligación de aceptar cualquier salario.",
+      "El empleador no puede renunciar a la empresa.",
+      "La imposibilidad jurídica de privarse voluntariamente de las ventajas concedidas por el derecho laboral."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La imposibilidad jurídica de privarse voluntariamente de las ventajas concedidas por el derecho laboral."
+  },
+  {
+    id: 72,
+    question: "En el proceso laboral sanjuanino rige el principio de:",
+    options: [
+      "Mediación penal.",
+      "Gratuidad para el trabajador.",
+      "Secreto de actuaciones.",
+      "Pago previo de costas."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Gratuidad para el trabajador."
+  },
+  {
+    id: 73,
+    question: "La Ley 26.485 protege contra:",
+    options: [
+      "La violencia deportiva.",
+      "La violencia contra las mujeres en los ámbitos en que desarrollen sus relaciones interpersonales.",
+      "El acoso escolar exclusivamente.",
+      "Los conflictos vecinales."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La violencia contra las mujeres en los ámbitos en que desarrollen sus relaciones interpersonales."
+  },
+  {
+    id: 74,
+    question: "¿Qué es la violencia psicológica según la Ley 26.485?",
+    options: [
+      "Los golpes o maltrato físico.",
+      "La que causa daño emocional, disminución de la autoestima o perjudica el desarrollo personal.",
+      "La desigualdad salarial.",
+      "El daño al patrimonio de la víctima."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La que causa daño emocional, disminución de la autoestima o perjudica el desarrollo personal."
+  },
+  {
+    id: 75,
+    question: "La Convención de Belém do Pará refiere a:",
+    options: [
+      "La regulación de los tratados de paz.",
+      "El derecho del mar.",
+      "El comercio internacional.",
+      "La prevención, sanción y erradicación de la violencia contra la mujer."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La prevención, sanción y erradicación de la violencia contra la mujer."
+  },
+  {
+    id: 76,
+    question: "En casos de violencia familiar, los jueces pueden ordenar:",
+    options: [
+      "El pago de una multa a la provincia.",
+      "Prisión perpetua automática.",
+      "El despido laboral del agresor.",
+      "Medidas cautelares urgentes de protección (ej: exclusión del hogar, restricción de acercamiento)."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Medidas cautelares urgentes de protección (ej: exclusión del hogar, restricción de acercamiento)."
+  },
+  {
+    id: 77,
+    question: "¿Qué es la jurisdicción?",
+    options: [
+      "La potestad del Estado para administrar justicia y resolver conflictos.",
+      "La zona donde actúa la policía.",
+      "El poder de cobrar impuestos.",
+      "La división de provincias."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "La potestad del Estado para administrar justicia y resolver conflictos."
+  },
+  {
+    id: 78,
+    question: "¿Qué es la competencia?",
+    options: [
+      "La habilidad del juez para fallar.",
+      "El horario de tribunales.",
+      "El límite o medida de la jurisdicción (por territorio, materia, grado).",
+      "La rivalidad entre abogados."
+    ],
+    correctAnswerIndex: 2,
+    explanation: "El límite o medida de la jurisdicción (por territorio, materia, grado)."
+  },
+  {
+    id: 79,
+    question: "Un acto jurídico es:",
+    options: [
+      "Un acontecimiento de la naturaleza.",
+      "Un acto voluntario lícito que tiene por fin inmediato producir efectos jurídicos.",
+      "Cualquier hecho humano.",
+      "Un delito penado por la ley."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Un acto voluntario lícito que tiene por fin inmediato producir efectos jurídicos."
+  },
+  {
+    id: 80,
+    question: "La preclusión procesal significa:",
+    options: [
+      "Que el juez dicte sentencia.",
+      "Que el juicio es gratis.",
+      "Que el juicio comienza.",
+      "La pérdida de una facultad procesal por haber transcurrido el plazo para ejercerla."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La pérdida de una facultad procesal por haber transcurrido el plazo para ejercerla."
+  },
+  {
+    id: 81,
+    question: "¿Cuáles son los niveles de gobierno en el Estado Federal Argentino?",
+    options: [
+      "Nacional y Provincial únicamente.",
+      "Nacional, Mercosur y ONU.",
+      "Provincial y Departamental.",
+      "Nacional, Provincial, Municipal y CABA."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Nacional, Provincial, Municipal y CABA."
+  },
+  {
+    id: 82,
+    question: "Los Tratados de Derechos Humanos con jerarquía constitucional:",
+    options: [
+      "Están por debajo de las leyes nacionales.",
+      "Tienen la misma jerarquía que la Constitución.",
+      "Solo aplican si una ley los reglamenta.",
+      "Son superiores a la Constitución."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Tienen la misma jerarquía que la Constitución."
+  },
+  {
+    id: 83,
+    question: "El amparo es la acción para proteger:",
+    options: [
+      "La libertad física exclusivamente.",
+      "El derecho a cobrar una herencia.",
+      "Únicamente derechos patrimoniales.",
+      "Derechos constitucionales lesionados de manera manifiesta y arbitraria (que no sean la libertad física)."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Derechos constitucionales lesionados de manera manifiesta y arbitraria (que no sean la libertad física)."
+  },
+  {
+    id: 84,
+    question: "¿Qué principio rige la prueba en el sistema acusatorio?",
+    options: [
+      "El Juez debe conseguir las pruebas.",
+      "La carga de la prueba le corresponde a la Fiscalía (quien acusa).",
+      "La carga es del imputado (debe probar su inocencia).",
+      "Las pruebas se presumen verdaderas sin demostración."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La carga de la prueba le corresponde a la Fiscalía (quien acusa)."
+  },
+  {
+    id: 85,
+    question: "¿Qué es la cosa juzgada?",
+    options: [
+      "El atributo de la sentencia definitiva contra la cual no proceden más recursos.",
+      "Cuando un objeto ha sido embargado.",
+      "El inicio de una causa judicial.",
+      "Cuando el juez opina sobre un tema antes del juicio."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "El atributo de la sentencia definitiva contra la cual no proceden más recursos."
+  },
+  {
+    id: 86,
+    question: "En el Derecho de Familia, el Interés Superior del Niño implica:",
+    options: [
+      "Que los abuelos deciden por el niño.",
+      "Que el niño manda sobre sus padres.",
+      "Que el niño siempre se queda con la madre.",
+      "Que las decisiones deben priorizar el máximo bienestar y los derechos del menor de edad."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Que las decisiones deben priorizar el máximo bienestar y los derechos del menor de edad."
+  },
+  {
+    id: 87,
+    question: "La acción de amparo por mora procede:",
+    options: [
+      "Contra un juez por demorar la sentencia.",
+      "Ante la demora injustificada de la Administración Pública en dictar una resolución.",
+      "Ante la falta de pago de un pagaré.",
+      "Cuando un deudor moroso no paga la cuota alimentaria."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Ante la demora injustificada de la Administración Pública en dictar una resolución."
+  },
+  {
+    id: 88,
+    question: "El Secreto de Sumario en la instrucción mixta sirve para:",
+    options: [
+      "Proteger los secretos comerciales.",
+      "Impedir que se conozcan los actos procesales para no frustrar la investigación.",
+      "Ocultar el fallo al público.",
+      "Proteger la identidad del juez."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Impedir que se conozcan los actos procesales para no frustrar la investigación."
+  },
+  {
+    id: 89,
+    question: "El trabajo en relación de dependencia se caracteriza por:",
+    options: [
+      "El trabajo societario de riesgo compartido.",
+      "El trabajo voluntario ad honorem.",
+      "El trabajo autónomo e independiente.",
+      "La subordinación jurídica, técnica y económica del trabajador."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La subordinación jurídica, técnica y económica del trabajador."
+  },
+  {
+    id: 90,
+    question: "Las Garantías Constitucionales son:",
+    options: [
+      "Los deberes de los ciudadanos.",
+      "Los mecanismos jurídicos que protegen los derechos reconocidos en la Constitución.",
+      "Declaraciones políticas sin fuerza de ley.",
+      "Los castigos para los delincuentes."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Los mecanismos jurídicos que protegen los derechos reconocidos en la Constitución."
+  },
+  {
+    id: 91,
+    question: "El principio 'non bis in idem' significa:",
+    options: [
+      "Que no se pueden pagar dos impuestos iguales.",
+      "Que los jueces deben ser dos por causa.",
+      "Que nadie puede ir preso sin abogado.",
+      "Que nadie puede ser perseguido penalmente dos veces por el mismo hecho."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Que nadie puede ser perseguido penalmente dos veces por el mismo hecho."
+  },
+  {
+    id: 92,
+    question: "La igualdad ante la ley (Art. 16 CN) implica que:",
+    options: [
+      "Se debe tratar igual a los iguales en igualdad de circunstancias.",
+      "No hay distinciones por edad para ningún acto.",
+      "Se eliminan las jerarquías en el empleo público.",
+      "Todos los ciudadanos deben cobrar el mismo sueldo."
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Se debe tratar igual a los iguales en igualdad de circunstancias."
+  },
+  {
+    id: 93,
+    question: "El Poder Judicial de la Provincia de San Juan tiene como cabeza a:",
+    options: [
+      "El Fiscal General.",
+      "La Corte de Justicia.",
+      "La Suprema Corte Nacional.",
+      "El Tribunal de Cuentas."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "La Corte de Justicia."
+  },
+  {
+    id: 94,
+    question: "En materia laboral, si una norma es ambigua, ¿qué sucede?",
+    options: [
+      "Se resuelve a favor del Estado.",
+      "Queda anulada automáticamente.",
+      "Se debe votar en la Legislatura nuevamente.",
+      "Se aplica en el sentido más favorable al trabajador (regla in dubio pro operario)."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Se aplica en el sentido más favorable al trabajador (regla in dubio pro operario)."
+  },
+  {
+    id: 95,
+    question: "El control de constitucionalidad en Argentina es 'difuso' porque:",
+    options: [
+      "Se realiza mediante un referéndum popular.",
+      "Solo la Corte Suprema puede ejercerlo.",
+      "Lo hace el Poder Ejecutivo.",
+      "Puede ser ejercido por cualquier juez de cualquier fuero o instancia."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "Puede ser ejercido por cualquier juez de cualquier fuero o instancia."
+  },
+  {
+    id: 96,
+    question: "La adopción plena tiene como efecto principal:",
+    options: [
+      "Otorgar un permiso de cuidado temporal.",
+      "Emplazar al adoptado en la familia adoptante como si fuera hijo biológico, extinguiendo los vínculos con la familia de origen.",
+      "Ser revocable en cualquier momento sin motivo.",
+      "Dar solo el apellido sin derechos hereditarios."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Emplazar al adoptado en la familia adoptante como si fuera hijo biológico, extinguiendo los vínculos con la familia de origen."
+  },
+  {
+    id: 97,
+    question: "El Ministerio Público de la Defensa en San Juan:",
+    options: [
+      "Es el encargado de investigar los homicidios.",
+      "Garantiza el acceso a la justicia y la defensa técnica de personas vulnerables o ausentes.",
+      "Controla los fondos de la Corte de Justicia.",
+      "Vota las leyes penales provinciales."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Garantiza el acceso a la justicia y la defensa técnica de personas vulnerables o ausentes."
+  },
+  {
+    id: 98,
+    question: "Los decretos de necesidad y urgencia (DNU):",
+    options: [
+      "No están previstos en nuestra Constitución.",
+      "Los dicta el Poder Ejecutivo en circunstancias excepcionales, prohibiéndose en materia penal, tributaria, electoral o de partidos políticos.",
+      "Los dictan los Jueces de Paz.",
+      "Los dicta el Congreso en secreto."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Los dicta el Poder Ejecutivo en circunstancias excepcionales, prohibiéndose en materia penal, tributaria, electoral o de partidos políticos."
+  },
+  {
+    id: 99,
+    question: "El principio de continuidad de la relación laboral:",
+    options: [
+      "El salario debe pagarse todos los días.",
+      "En caso de duda, se debe interpretar que el contrato sigue vigente.",
+      "El empleador no puede cerrar la empresa nunca.",
+      "El trabajador no puede tomar vacaciones."
+    ],
+    correctAnswerIndex: 1,
+    explanation: "En caso de duda, se debe interpretar que el contrato sigue vigente."
+  },
+  {
+    id: 100,
+    question: "La capacidad de derecho es:",
+    options: [
+      "La aptitud para ejercer los derechos por sí mismo.",
+      "La posibilidad física de realizar trabajos.",
+      "El patrimonio total de una persona.",
+      "La aptitud para ser titular de derechos y deberes jurídicos."
+    ],
+    correctAnswerIndex: 3,
+    explanation: "La aptitud para ser titular de derechos y deberes jurídicos."
+  },
 ];
