@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useStorage } from '../hooks/useStorage';
-import { legalTexts } from '../data/texts';
+import { studyTopics } from '../data/topics';
 import { Keyboard } from 'lucide-react';
 
 export function TypingTest() {
@@ -11,6 +11,13 @@ export function TypingTest() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [text, setText] = useState('');
   const [input, setInput] = useState('');
+
+  const [accumulatedCorrect, setAccumulatedCorrect] = useState(0);
+  const [accumulatedAttempted, setAccumulatedAttempted] = useState(0);
+
+  // Derive pool of texts
+  const textPool = studyTopics.flatMap(t => t.content).filter(c => c.split(' ').length > 20 && c.toUpperCase() !== c);
+
   
   const [wpm, setWpm] = useState(0);
   const [accuracy, setAccuracy] = useState(100);
@@ -19,7 +26,7 @@ export function TypingTest() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    setText(legalTexts[Math.floor(Math.random() * legalTexts.length)].content);
+    setText(textPool[Math.floor(Math.random() * textPool.length)]);
   }, []);
 
   useEffect(() => {
@@ -93,60 +100,77 @@ export function TypingTest() {
       }
     }
     
-    return { correctCount, wordStates, activeIndex, originalWords };
+    // If the loop finished and we processed all original words, or we processed some, j is the number of attempted words
+    return { correctCount, wordStates, activeIndex: j, originalWords };
   };
 
+  
   const startTest = () => {
     setTimeLeft(selectedTime * 60);
     setInput('');
+    setAccumulatedCorrect(0);
+    setAccumulatedAttempted(0);
     setIsActive(true);
     setIsFinished(false);
     setWpm(0);
     setAccuracy(100);
     setCorrectWords(0);
+    setText(textPool[Math.floor(Math.random() * textPool.length)]);
     setTimeout(() => inputRef.current?.focus(), 100);
   };
 
+
+  
   const endTest = () => {
     setIsActive(false);
     setIsFinished(true);
     
     const { correctCount, activeIndex } = evaluateTyping(input, text);
-    setCorrectWords(correctCount);
+    const finalCorrect = accumulatedCorrect + correctCount;
+    setCorrectWords(finalCorrect);
     
     const minutes = (selectedTime * 60 - timeLeft) / 60 || 1/60; 
-    const calculatedWpm = Math.round(correctCount / minutes);
+    const calculatedWpm = Math.round(finalCorrect / minutes);
     setWpm(calculatedWpm);
     
-    const totalAttempted = activeIndex;
-    const acc = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
+    const finalAttempted = accumulatedAttempted + activeIndex;
+    const acc = finalAttempted > 0 ? Math.round((finalCorrect / finalAttempted) * 100) : 0;
     setAccuracy(acc);
 
     saveResult({
       type: 'typing',
-      score: correctCount,
+      score: finalCorrect,
       duration: selectedTime * 60 - timeLeft,
       details: { wpm: calculatedWpm, accuracy: acc }
     });
   };
 
+
+  
   const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
     setInput(val);
     
     const { correctCount, activeIndex, originalWords } = evaluateTyping(val, text);
-    setCorrectWords(correctCount);
+    const totalCorrectNow = accumulatedCorrect + correctCount;
+    setCorrectWords(totalCorrectNow);
     
     const minutes = (selectedTime * 60 - timeLeft) / 60 || 1/60;
-    setWpm(Math.round(correctCount / minutes));
+    setWpm(Math.round(totalCorrectNow / minutes));
     
-    const totalAttempted = activeIndex;
-    setAccuracy(totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 100);
+    const totalAttemptedNow = accumulatedAttempted + activeIndex;
+    setAccuracy(totalAttemptedNow > 0 ? Math.round((totalCorrectNow / totalAttemptedNow) * 100) : 100);
     
+    // Auto-advance if we reached the end of this block
+    // We check if we processed all words in the original text
     if (activeIndex >= originalWords.length) {
-      endTest();
+      setAccumulatedCorrect(accumulatedCorrect + correctCount);
+      setAccumulatedAttempted(accumulatedAttempted + activeIndex);
+      setInput('');
+      setText(textPool[Math.floor(Math.random() * textPool.length)]);
     }
   };
+
 
   const formatTime = (secs: number) => {
     const m = Math.floor(secs / 60);
@@ -249,7 +273,7 @@ export function TypingTest() {
                   <span className="block mt-2 text-red-600 font-bold">Aún te faltan alcanzar las 100 palabras en 4 minutos. ¡Sigue practicando!</span>
                 ) : null}
               </p>
-              <button onClick={() => { setText(legalTexts[Math.floor(Math.random() * legalTexts.length)].content); setIsFinished(false); }} className="bg-primary hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+              <button onClick={() => { setText(textPool[Math.floor(Math.random() * textPool.length)]); setIsFinished(false); }} className="bg-primary hover:bg-blue-800 text-white font-medium py-2 px-6 rounded-lg transition-colors">
                 Practicar con otro texto
               </button>
             </div>
