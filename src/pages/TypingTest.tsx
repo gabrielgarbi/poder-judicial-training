@@ -55,7 +55,7 @@ export function TypingTest() {
     
     const wordStates = new Array(originalWords.length).fill('pending');
     let correctCount = 0;
-    let activeIndex = 0;
+    
     
     let i = 0;
     let j = 0;
@@ -66,7 +66,7 @@ export function TypingTest() {
       const isLastInput = (i === inputWords.length - 1);
       
       if (isLastInput) {
-        activeIndex = j;
+        
         if (iw === '') {
            wordStates[j] = 'active-correct';
         } else if (ow.startsWith(iw)) {
