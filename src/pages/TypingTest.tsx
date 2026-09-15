@@ -16,7 +16,7 @@ export function TypingTest() {
   const [accumulatedAttempted, setAccumulatedAttempted] = useState(0);
 
   // Derive pool of texts
-  const textPool = studyTopics.flatMap(t => t.content).filter(c => c.split(' ').length > 20 && c.toUpperCase() !== c);
+  const textPool = studyTopics.flatMap(t => t.content).filter(c => c.split(' ').length > 20 && c.toUpperCase() !== c).map(c => c.replace(/\s+/g, ' ').trim());
 
   
   const [wpm, setWpm] = useState(0);
